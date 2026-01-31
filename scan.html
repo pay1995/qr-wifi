@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Scan QR Hotspot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://unpkg.com/html5-qrcode"></script>
+<style>
+body{margin:0;background:#000}
+#reader{width:100vw;height:100vh}
+</style>
+</head>
+<body>
+<div id="reader"></div>
+<script>
+const qr = new Html5Qrcode("reader");
+qr.start(
+  { facingMode: "environment" },
+  { fps: 10, qrbox: 250 },
+  text => { window.location.href = text; },
+  err => {}
+);
+</script>
+</body>
+</html>
